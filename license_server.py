@@ -23,7 +23,7 @@ def validate_string():
         file.write("Time: {}\nReqeuster_IP: {}\nInput: {}\n\n".format(current_time, ip_address, input_string))
 
     # Read strings from the file
-    file_path = '/opt/license_string.txt'
+    file_path = 'license_string.txt'
     strings = read_strings_from_file(file_path)
 
     # Check if the input string is present in the file
