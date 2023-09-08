@@ -23,6 +23,18 @@ key_content=$(<"$license_filename")
 if [[ "$key_content" == "$license_key" ]]; then
     logger "License Key is validated and Good"
 
+    # Add your date comparison logic here
+    target_date="2023-09-15"  # Replace with your target date in yyyy-mm-dd format
+    current_date=$(date +"%Y-%m-%d")
+
+    if [[ "$current_date" > "$target_date" ]]; then
+        logger "The target date has occurred. Stopping services A and B."
+        # systemctl stop serviceA
+        # systemctl stop serviceB
+    else
+        logger "The target date has not yet occurred."
+    fi
+
 else
     logger "Invalid or corrupted license file"
     #systemctl stop serviceA
